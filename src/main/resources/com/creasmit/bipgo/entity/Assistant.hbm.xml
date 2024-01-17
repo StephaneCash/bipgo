@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 22, 2021 11:34:13 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.creasmit.bipgo.entity.Assistant" table="Assistant" catalog="bipGo" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="modePaiement" type="string">
+            <column name="modePaiement" />
+        </property>
+        <property name="fkStructure" type="java.lang.Integer">
+            <column name="fkStructure" />
+        </property>
+        <property name="fkIdentite" type="java.lang.Integer">
+            <column name="fkIdentite" />
+        </property>
+        <property name="fkVehicule" type="java.lang.Integer">
+            <column name="fkVehicule" />
+         </property> 
+         <property name="fkWallet" type="java.lang.Integer">
+            <column name="fkWallet"/>
+        </property>  
+        <property name="dateCreate" type="timestamp">
+            <column name="dateCreate" />
+        </property>
+        <property name="dateModif" type="timestamp">
+            <column name="dateModif" />
+        </property>
+        <property name="agentCreate" type="java.lang.Integer">
+            <column name="agentCreate" />
+        </property>
+        <property name="agentModif" type="java.lang.Integer">
+            <column name="agentModif" />
+        </property>
+    </class>
+</hibernate-mapping>

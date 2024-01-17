@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:p="http://www.springframework.org/schema/p" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    
+    <!--Dao instances-->
+    <bean id="daoGeneric" class="one.creas.emalib.hbd.DaoGeneric"></bean>
+    <bean id="daoPos" class="com.creasmit.bipgo.dao.DaoPos">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoGerant" class="com.creasmit.bipgo.dao.DaoGerant">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoDriver" class="com.creasmit.bipgo.dao.DaoDriver">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoIdentite" class="com.creasmit.bipgo.dao.DaoIdentite">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoAssistant" class="com.creasmit.bipgo.dao.DaoAssistant">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoPrix" class="com.creasmit.bipgo.dao.DaoPrix">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoTypeVehicule" class="com.creasmit.bipgo.dao.DaoTypeVehicule">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoStructure" class="com.creasmit.bipgo.dao.DaoStructure">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoConfirmationCompte" class="com.creasmit.bipgo.dao.DaoConfirmationCompte">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoTransaction" class="com.creasmit.bipgo.dao.DaoTransaction">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoCompte" class="com.creasmit.bipgo.dao.DaoCompte">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    
+    <bean id="daoWallet" class="com.creasmit.bipgo.dao.DaoWallet">
+        <property name="dao" ref="daoGeneric"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    
+    <bean id="daoVehicule" class="com.creasmit.bipgo.dao.DaoVehicule">
+        <property name="dao" ref="daoGeneric"></property>
+        <property name="daoWallet" ref="daoWallet"></property>
+    </bean>
+    <bean id="daoLine" class="com.creasmit.bipgo.dao.DaoLine">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <bean id="daoAgent" class="com.creasmit.bipgo.dao.DaoAgent">
+        <property name="dao" ref="daoGeneric"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    <bean id="daoClient" class="com.creasmit.bipgo.dao.DaoClient">
+        <property name="dao" ref="daoGeneric"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    <bean id="daoConfiguration" class="com.creasmit.bipgo.dao.DaoConfiguration">
+        <property name="dao" ref="daoGeneric"></property>
+    </bean>
+    <!--End Dao -->
+    
+ 
+    <!--Controller instances-->
+    <bean id="posController" class="com.creasmit.bipgo.controller.PosController">
+        <property name="dao" ref="daoPos"></property>
+    </bean>
+    <bean id="agentController" class="com.creasmit.bipgo.controller.AgentController">
+        <property name="daoAgent" ref="daoAgent"></property>
+        <property name="daoIdentite" ref="daoIdentite"></property>
+        <property name="daoWallet" ref="daoWallet"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    <bean id="clientController" class="com.creasmit.bipgo.controller.ClientController">
+        <property name="daoClient" ref="daoClient"></property>
+        <property name="daoIdentite" ref="daoIdentite"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+        <property name="daoWallet" ref="daoWallet"></property>
+    </bean>
+    <bean id="configurationController" class="com.creasmit.bipgo.controller.ConfigurationController">
+        <property name="daoConfiguration" ref="daoConfiguration"></property>
+    </bean>
+    <bean id="gerantController" class="com.creasmit.bipgo.controller.GerantController">
+        <property name="daoGerant" ref="daoGerant"></property>
+        <property name="daoIdentite" ref="daoIdentite"></property>
+    </bean>
+    <bean id="driverController" class="com.creasmit.bipgo.controller.DriverController">
+        <property name="daoDriver" ref="daoDriver"></property>
+        <property name="daoIdentite" ref="daoIdentite"></property>
+        <property name="daoWallet" ref="daoWallet"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    <bean id="assistantController" class="com.creasmit.bipgo.controller.AssistantController">
+        <property name="daoAssistant" ref="daoAssistant"></property>
+        <property name="daoIdentite" ref="daoIdentite"></property>
+    </bean>
+    <bean id="vehiculeController" class="com.creasmit.bipgo.controller.VehiculeController">
+        <property name="daoVehicule" ref="daoVehicule"></property>
+        <property name="daoWallet" ref="daoWallet"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    <bean id="prixController" class="com.creasmit.bipgo.controller.PrixController">
+        <property name="daoPrix" ref="daoPrix"></property>
+    </bean>
+    <bean id="typeVehiculeController" class="com.creasmit.bipgo.controller.TypeVehiculeController">
+        <property name="daoTypeVehicule" ref="daoTypeVehicule"></property>
+    </bean>
+    <bean id="structureController" class="com.creasmit.bipgo.controller.StructureController">
+        <property name="daoStructure" ref="daoStructure"></property>
+        <property name="daoGerant" ref="daoGerant"></property>
+        <property name="daoDriver" ref="daoDriver"></property>
+        <property name="daoAssistant" ref="daoAssistant"></property>
+        <property name="daoVehicule" ref="daoVehicule"></property>
+        <property name="daoIdentite" ref="daoIdentite"></property>
+        <property name="daoWallet" ref="daoWallet"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    <bean id="confirmationCompteController" class="com.creasmit.bipgo.controller.ConfirmationCompteController">
+        <property name="daoConfirmationCompte" ref="daoConfirmationCompte"></property>
+    </bean>
+    <bean id="transactionController" class="com.creasmit.bipgo.controller.TransactionController">
+        <property name="daoTransaction" ref="daoTransaction"></property>
+    </bean>
+    <bean id="lineController" class="com.creasmit.bipgo.controller.LineController">
+        <property name="daoLine" ref="daoLine"></property>
+    </bean>
+    <bean id="walletController" class="com.creasmit.bipgo.controller.WalletController">
+        <property name="daoWallet" ref="daoWallet"></property>
+        <property name="daoCompte" ref="daoCompte"></property>
+    </bean>
+    
+    <bean id="authController" class="com.creasmit.bipgo.controller.AuthController"></bean>
+    <!--End Controller-->
+</beans>

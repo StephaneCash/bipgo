@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 22, 2021 11:34:13 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.creasmit.bipgo.entity.ConfirmationCompte" table="ConfirmationCompte">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="pin" type="string">
+            <column name="pin"  />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone"  />
+        </property>
+        <property name="email" type="string">
+            <column name="email"  />
+        </property>
+        <property name="dateCreate" type="timestamp">
+            <column name="dateCreate" />
+        </property>
+        <property name="fkIdentite" type="java.lang.Integer">
+            <column name="fkIdentite" />
+        </property>
+    </class>
+</hibernate-mapping>

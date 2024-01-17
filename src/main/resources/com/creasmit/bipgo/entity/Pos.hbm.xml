@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 22, 2021 11:34:13 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.creasmit.bipgo.entity.Pos" table="Pos" catalog="bipGo" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="sn" type="string">
+            <column name="sn" />
+        </property>
+        <property name="dateCreate" type="java.util.Date">
+            <column name="dateCreate" length="19" />
+        </property>
+        <property name="agentCreate" type="java.lang.Integer">
+            <column name="agentCreate" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" />
+        </property>
+        <property name="fkStatutPos" type="java.lang.Integer">
+            <column name="fkStatutPos" />
+        </property>
+    </class>
+</hibernate-mapping>
